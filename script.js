@@ -1,5 +1,5 @@
 // ===============================
-// Hamed Baramalaki Portfolio v2.0
+// Hamed Baramaleki Portfolio v2.0
 // ===============================
 
 // Loader
