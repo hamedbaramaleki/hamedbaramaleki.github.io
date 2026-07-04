@@ -889,7 +889,10 @@ font-size:38px;
 
 .gallery-item img{
 
-height:300px;
+width:100%;
+height:auto;
+max-height:none;
+object-fit:contain;
 
 }
 
