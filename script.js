@@ -153,37 +153,33 @@ behavior:"smooth"
 
 // Gallery Lightbox
 
-const lightbox=document.querySelector(".lightbox");
-
-const lightboxImg=lightbox.querySelector("img");
-
-const closeBtn=document.querySelector(".close-lightbox");
+const lightbox = document.querySelector(".lightbox");
+const lightboxImg = lightbox.querySelector("img");
 
 document.querySelectorAll(".gallery-item img").forEach(img=>{
 
-img.addEventListener("click",()=>{
+    img.addEventListener("click",()=>{
 
-lightbox.style.display="flex";
+        lightbox.style.display="flex";
+        lightboxImg.src=img.src;
 
-lightboxImg.src=img.src;
+    });
 
 });
 
-});
+document.querySelector(".close-lightbox").onclick=()=>{
 
-closeBtn.onclick=()=>{
-
-lightbox.style.display="none";
+    lightbox.style.display="none";
 
 };
 
-lightbox.onclick=e=>{
+lightbox.onclick=(e)=>{
 
-if(e.target===lightbox){
+    if(e.target===lightbox){
 
-lightbox.style.display="none";
+        lightbox.style.display="none";
 
-}
+    }
 
 };
 
