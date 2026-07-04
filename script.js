@@ -1,44 +1,44 @@
-// ===============================
-// Hamed Baramaleki Portfolio v2.0
-// ===============================
+// =======================================
+// Hamed Baramaleki Portfolio v3
+// =======================================
 
 // Loader
 window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
 
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        loader.style.visibility = "hidden";
-    }, 1800);
+const loader = document.querySelector(".loader");
+
+setTimeout(() => {
+
+loader.style.opacity = "0";
+loader.style.visibility = "hidden";
+
+},1500);
+
 });
 
-
-// Navbar Shadow
+// Navbar Blur
 
 const header = document.querySelector("header");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    if (window.scrollY > 50) {
+if(window.scrollY>50){
 
-        header.style.background = "rgba(0,0,0,.75)";
-        header.style.boxShadow = "0 15px 40px rgba(0,0,0,.4)";
+header.style.background="rgba(0,0,0,.75)";
+header.style.boxShadow="0 15px 40px rgba(0,0,0,.45)";
 
-    } else {
+}else{
 
-        header.style.background = "rgba(0,0,0,.35)";
-        header.style.boxShadow = "none";
+header.style.background="rgba(0,0,0,.35)";
+header.style.boxShadow="none";
 
-    }
+}
 
 });
 
+// Scroll Animation
 
-// Reveal Animation
-
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver(entries=>{
 
 entries.forEach(entry=>{
 
@@ -55,29 +55,30 @@ entry.target.style.transform="translateY(0)";
 threshold:.15
 });
 
-sections.forEach(section=>{
+document.querySelectorAll("section").forEach(section=>{
 
 section.style.opacity="0";
 section.style.transform="translateY(80px)";
-section.style.transition="1s ease";
+section.style.transition=".9s ease";
 
 observer.observe(section);
 
 });
 
-
 // Active Menu
 
-const navLinks=document.querySelectorAll("nav a");
+const links=document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll",()=>{
 
 let current="";
 
-sections.forEach(section=>{
+document.querySelectorAll("section").forEach(section=>{
 
 const top=window.scrollY;
+
 const offset=section.offsetTop-150;
+
 const height=section.offsetHeight;
 
 if(top>=offset && top<offset+height){
@@ -88,7 +89,7 @@ current=section.id;
 
 });
 
-navLinks.forEach(link=>{
+links.forEach(link=>{
 
 link.classList.remove("active");
 
@@ -102,54 +103,7 @@ link.classList.add("active");
 
 });
 
-
-// Gallery Lightbox
-
-const images=document.querySelectorAll(".gallery img");
-
-images.forEach(image=>{
-
-image.addEventListener("click",()=>{
-
-const overlay=document.createElement("div");
-
-overlay.style.position="fixed";
-overlay.style.top="0";
-overlay.style.left="0";
-overlay.style.width="100%";
-overlay.style.height="100%";
-overlay.style.background="rgba(0,0,0,.95)";
-overlay.style.display="flex";
-overlay.style.justifyContent="center";
-overlay.style.alignItems="center";
-overlay.style.zIndex="99999";
-overlay.style.cursor="zoom-out";
-
-const photo=document.createElement("img");
-
-photo.src=image.src;
-
-photo.style.maxWidth="90%";
-photo.style.maxHeight="90%";
-photo.style.borderRadius="20px";
-photo.style.boxShadow="0 0 50px rgba(212,175,55,.4)";
-
-overlay.appendChild(photo);
-
-document.body.appendChild(overlay);
-
-overlay.onclick=()=>{
-
-overlay.remove();
-
-}
-
-});
-
-});
-
-
-// Smooth Buttons
+// Smooth Scroll
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
@@ -167,14 +121,105 @@ behavior:"smooth"
 
 });
 
+// Scroll Top
+
+const scrollBtn=document.getElementById("scrollTop");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+scrollBtn.style.display="flex";
+
+}else{
+
+scrollBtn.style.display="none";
+
+}
+
+});
+
+scrollBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+// Gallery Lightbox
+
+const lightbox=document.querySelector(".lightbox");
+
+const lightboxImg=lightbox.querySelector("img");
+
+const closeBtn=document.querySelector(".close-lightbox");
+
+document.querySelectorAll(".gallery-item img").forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+lightbox.style.display="flex";
+
+lightboxImg.src=img.src;
+
+});
+
+});
+
+closeBtn.onclick=()=>{
+
+lightbox.style.display="none";
+
+};
+
+lightbox.onclick=e=>{
+
+if(e.target===lightbox){
+
+lightbox.style.display="none";
+
+}
+
+};
+
+// Typing Effect
+
+const quote=document.querySelector(".hero-text p");
+
+const text=quote.innerText;
+
+quote.innerHTML="";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+quote.innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,35);
+
+}
+
+}
+
+type();
 
 // Mouse Glow
 
 const glow=document.createElement("div");
 
 glow.style.position="fixed";
-glow.style.width="250px";
-glow.style.height="250px";
+glow.style.width="260px";
+glow.style.height="260px";
 glow.style.borderRadius="50%";
 glow.style.pointerEvents="none";
 glow.style.background="radial-gradient(circle, rgba(212,175,55,.15), transparent 70%)";
@@ -190,29 +235,30 @@ glow.style.top=e.clientY+"px";
 
 });
 
+// Parallax Hero
 
-// Typing Effect
+window.addEventListener("scroll",()=>{
 
-const quote=document.querySelector(".quote");
+const hero=document.querySelector(".hero-image img");
 
-const text=quote.innerText;
+hero.style.transform=`translateY(${window.scrollY*0.08}px)`;
 
-quote.innerHTML="";
+});
 
-let i=0;
+// Social Hover Animation
 
-function typing(){
+document.querySelectorAll(".hero-social a,.footer-social a").forEach(icon=>{
 
-if(i<text.length){
+icon.addEventListener("mouseenter",()=>{
 
-quote.innerHTML+=text.charAt(i);
+icon.style.transform="translateY(-6px) scale(1.1)";
 
-i++;
+});
 
-setTimeout(typing,40);
+icon.addEventListener("mouseleave",()=>{
 
-}
+icon.style.transform="translateY(0) scale(1)";
 
-}
+});
 
-typing();
+});
