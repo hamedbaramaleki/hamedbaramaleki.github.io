@@ -2,19 +2,26 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hamed Baramaleki | Official Website</title>
+<title>Hamed Baramaleki | Official Portfolio</title>
 
-<meta name="description" content="Official personal website of Hamed Baramaleki">
+<meta name="description" content="Official website of Hamed Baramaleki">
 <meta name="keywords" content="Hamed Baramaleki, Portfolio, Official Website">
 <meta name="author" content="Hamed Baramaleki">
+
+<meta name="theme-color" content="#000000">
+
+<meta name="google-site-verification" content="5xvQvURv_jkquUqhzaTc_lKF16Ufin13_zQO8gfgMYI" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <link rel="stylesheet" href="style.css">
 
@@ -23,21 +30,31 @@
 <body>
 
 <div class="loader">
-<div class="logo-loader">HB</div>
+
+<div class="logo-loader">
+
+HB
+
+</div>
+
 </div>
 
 <header>
 
 <nav>
 
-<div class="logo">
+<a href="#" class="logo">
+
 HB
-</div>
+
+</a>
 
 <ul>
 
 <li><a href="#home">Home</a></li>
+
 <li><a href="#gallery">Gallery</a></li>
+
 <li><a href="#contact">Contact</a></li>
 
 </ul>
@@ -46,63 +63,73 @@ HB
 
 </header>
 
-<section id="home" class="hero">
-
-<div class="hero-content">
-
-<div class="left">
-
-<h3>WELCOME</h3>
-
-<h1>
-Hamed <br>
-Baramaleki
-</h1>
-
-<p class="quote">
-Be strong.<br>
-Every sunrise is another chance to begin again.
-</p>
-
-<div class="buttons">
-
-<a href="#gallery" class="btn">
-Gallery
-</a>
-
-<a href="#contact" class="btn-outline">
-Contact
-</a>
-
-</div>
-
-</div>
-
-<div class="right">
-
-<img src="IMG_0842_Original.jpeg" alt="Hamed Baramaleki">
-
-</div>
-
-</div>
-
-</section>
-
 <section id="gallery">
 
-<div class="title">
+<div class="section-header">
+
+<span class="section-subtitle">
 GALLERY
+</span>
+
+<h2>
+My Moments
+</h2>
+
+<p>
+A collection of my favorite photographs.
+</p>
+
 </div>
 
-<div class="gallery">
+<div class="gallery-grid">
+
+<div class="gallery-item">
 
 <img src="IMG_9576_Original.jpeg" alt="Photo 1">
 
+<div class="gallery-overlay">
+
+<i class="fa-solid fa-expand"></i>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
 <img src="IMG_8926_Original.jpeg" alt="Photo 2">
+
+<div class="gallery-overlay">
+
+<i class="fa-solid fa-expand"></i>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
 
 <img src="IMG_3778_Original.jpeg" alt="Photo 3">
 
+<div class="gallery-overlay">
+
+<i class="fa-solid fa-expand"></i>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
 <img src="IMG_6227_Original.jpeg" alt="Photo 4">
+
+<div class="gallery-overlay">
+
+<i class="fa-solid fa-expand"></i>
+
+</div>
+
+</div>
 
 </div>
 
@@ -110,22 +137,76 @@ GALLERY
 
 <section id="contact">
 
-<div class="title">
+<div class="section-header">
+
+<span class="section-subtitle">
 CONTACT
+</span>
+
+<h2>
+Get In Touch
+</h2>
+
+<p>
+Feel free to contact me anytime.
+</p>
+
 </div>
 
-<div class="contact-box">
+<div class="contact-container">
 
-<a href="mailto:hamed.baramaleki@gmail.com">
-📧 hamed.baramaleki@gmail.com
+<a href="https://t.me/h4ameed" target="_blank" class="contact-card">
+
+<div class="contact-icon">
+
+<i class="fa-brands fa-telegram"></i>
+
+</div>
+
+<div>
+
+<h3>Telegram</h3>
+
+<p>@h4ameed</p>
+
+</div>
+
 </a>
 
-<a href="https://instagram.com/h4amed" target="_blank">
-📷 @h4amed
+<a href="https://instagram.com/h4amed" target="_blank" class="contact-card">
+
+<div class="contact-icon">
+
+<i class="fa-brands fa-instagram"></i>
+
+</div>
+
+<div>
+
+<h3>Instagram</h3>
+
+<p>@h4amed</p>
+
+</div>
+
 </a>
 
-<a href="https://t.me/h4ameed" target="_blank">
-✈ Telegram
+<a href="mailto:hamed.baramaleki@gmail.com" class="contact-card">
+
+<div class="contact-icon">
+
+<i class="fa-solid fa-envelope"></i>
+
+</div>
+
+<div>
+
+<h3>Email</h3>
+
+<p>hamed.baramaleki@gmail.com</p>
+
+</div>
+
 </a>
 
 </div>
@@ -134,9 +215,73 @@ CONTACT
 
 <footer>
 
-© 2026 Hamed Baramaleki
+<div class="footer-container">
+
+<div class="footer-logo">
+
+HB
+
+</div>
+
+<p class="footer-text">
+
+Designed & Developed by
+
+<strong>Hamed Baramaleki</strong>
+
+</p>
+
+<div class="footer-social">
+
+<a href="https://t.me/h4ameed" target="_blank">
+
+<i class="fa-brands fa-telegram"></i>
+
+</a>
+
+<a href="https://instagram.com/h4amed" target="_blank">
+
+<i class="fa-brands fa-instagram"></i>
+
+</a>
+
+<a href="mailto:hamed.baramaleki@gmail.com">
+
+<i class="fa-solid fa-envelope"></i>
+
+</a>
+
+</div>
+
+<p class="copyright">
+
+© 2026 Hamed Baramaleki. All Rights Reserved.
+
+</p>
+
+</div>
 
 </footer>
+
+<button id="scrollTop">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<div class="lightbox">
+
+<span class="close-lightbox">
+
+<i class="fa-solid fa-xmark"></i>
+
+</span>
+
+<img src="" alt="Preview">
+
+</div>
+
+</main>
 
 <script src="script.js"></script>
 
