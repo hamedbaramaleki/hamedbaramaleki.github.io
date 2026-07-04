@@ -216,6 +216,3 @@ setTimeout(typing,40);
 }
 
 typing();
-nav a.active{
-color:#d4af37;
-}
