@@ -539,3 +539,6 @@ display:none;
 }
 
 }
+nav a.active{
+    color:#d4af37;
+}
