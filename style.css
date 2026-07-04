@@ -73,18 +73,12 @@ transition:1s;
 
 }
 
-.loader-logo{
-
+.logo-loader{
 font-size:80px;
-
 font-weight:800;
-
 letter-spacing:10px;
-
 color:var(--gold);
-
 animation:pulse 2s infinite;
-
 }
 
 @keyframes pulse{
