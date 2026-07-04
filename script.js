@@ -187,31 +187,9 @@ lightbox.style.display="none";
 
 };
 
-// Typing Effect
+// 
 
-const quote=document.querySelector(".hero-text p");
 
-const text=quote.innerText;
-
-quote.innerHTML="";
-
-let i=0;
-
-function type(){
-
-if(i<text.length){
-
-quote.innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(type,35);
-
-}
-
-}
-
-type();
 
 // Mouse Glow
 
@@ -235,15 +213,7 @@ glow.style.top=e.clientY+"px";
 
 });
 
-// Parallax Hero
 
-window.addEventListener("scroll",()=>{
-
-const hero=document.querySelector(".hero-image img");
-
-hero.style.transform=`translateY(${window.scrollY*0.08}px)`;
-
-});
 
 // Social Hover Animation
 
