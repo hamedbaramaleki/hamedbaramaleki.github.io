@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAMED BARAMALEKI | Official Website</title>
+<meta name="description" content="Official personal website of Hamed Baramaleki.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://hamedbaramaleki.github.io/">
+
+<style>
+:root {
+  --black: #030303;
+  --gold: #d2ad62;
+  --gold-light: #f5dfab;
+  --muted: #a39b8e;
+  --line: rgba(210,173,98,.28);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: #f5f1e8;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--gold); color: #000; }
+
+.top-line {
+  height: 2px;
+  background: linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+header {
+  min-height: 76px;
+  padding: 20px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: rgba(0,0,0,.95);
+}
+.logo {
+  font-family: Georgia,serif;
+  font-size: 32px;
+  letter-spacing: -3px;
+  color: var(--gold);
+}
+nav { display: flex; gap: 28px; }
+nav a,.top-note {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #d4cec2;
+  transition: color .3s;
+}
+nav a:hover { color: var(--gold-light); }
+.top-note { color: var(--gold); }
+
+.hero {
+  max-width: 1450px;
+  min-height: 650px;
+  padding: 75px 7%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 55px;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 78% 30%,rgba(210,173,98,.13),transparent 36%),
+    radial-gradient(ellipse at 20% 80%,rgba(210,173,98,.05),transparent 45%);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -90px;
+  bottom: 0;
+  width: 55%;
+  height: 80%;
+  opacity: .15;
+  background: repeating-linear-gradient(
+    125deg,transparent 0 28px,rgba(210,173,98,.14) 29px 30px,
+    transparent 31px 55px
+  );
+  mask-image: linear-gradient(transparent,#000);
+  pointer-events: none;
+}
+.intro { position: relative; z-index: 2; }
+.kicker {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-bottom: 28px;
+}
+h1 {
+  font-family: Georgia,"Times New Roman",serif;
+  font-size: clamp(42px,6.2vw,78px);
+  line-height: 1.04;
+  font-weight: 400;
+  letter-spacing: -2px;
+}
+h1 span {
+  display: block;
+  color: var(--gold);
+  margin-top: 8px;
+}
+.tagline {
+  margin-top: 25px;
+  color: var(--gold-light);
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+.description {
+  max-width: 440px;
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 35px;
+}
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 175px;
+  padding: 15px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 40px;
+  background: rgba(0,0,0,.6);
+  color: var(--gold-light);
+  font-size: 10px;
+  letter-spacing: 2px;
+  transition: .35s ease;
+}
+.social svg { width: 20px; height: 20px; }
+.social:hover {
+  color: #000;
+  background: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(210,173,98,.22);
+}
+.scroll-note {
+  display: inline-block;
+  margin-top: 32px;
+  color: #8c8578;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.photo-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 15px 15px;
+}
+.photo-frame {
+  position: relative;
+  width: min(100%,390px);
+  height: 490px;
+  padding: 8px;
+  border: 1px solid var(--gold);
+  border-radius: 190px 190px 18px 18px;
+  background: linear-gradient(145deg,#18140d,#030303 60%);
+  box-shadow: 0 0 50px rgba(210,173,98,.09);
+  overflow: hidden;
+}
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 14px;
+  border: 1px solid rgba(210,173,98,.38);
+  border-radius: 180px 180px 12px 12px;
+  pointer-events: none;
+}
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 180px 180px 12px 12px;
+  filter: grayscale(100%) contrast(1.08);
+  transition: filter .6s, transform .6s;
+}
+.photo-frame:hover img {
+  filter: grayscale(25%) contrast(1.02);
+  transform: scale(1.025);
+}
+.photo-caption {
+  position: absolute;
+  right: -2px;
+  bottom: 45px;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
+}
+.photo-caption::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 35px;
+  margin-bottom: 12px;
+  background: var(--gold);
+}
+
+.section {
+  border-top: 1px solid var(--line);
+  padding: 80px 7%;
+}
+.section-inner { max-width: 1150px; margin: auto; }
+.section-label {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-bottom: 28px;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 65px;
+}
+h2 {
+  font-family: Georgia,serif;
+  font-size: clamp(29px,4vw,45px);
+  line-height: 1.25;
+  font-weight: 400;
+}
+.about-copy {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+.values {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.value {
+  padding: 24px 12px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+.value:last-child { border-right: 0; }
+.value strong {
+  display: block;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.value span { color: #928b80; font-size: 11px; line-height: 1.8; }
+
+.gallery-intro {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  max-width: 550px;
+}
+.gallery-placeholder {
+  margin-top: 30px;
+  width: 100%;
+  min-height: 180px;
+  border: 1px dashed var(--gold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gold);
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+.gallery-placeholder span { line-height: 2.5; }
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 6%;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: #777166;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+footer strong { color: var(--gold); font-weight: 400; }
+
+@media(max-width:800px) {
+  header { padding: 19px 5%; }
+  nav { gap: 13px; }
+  nav a { font-size: 8px; letter-spacing: 1px; }
+  .top-note { display: none; }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 65px 7% 85px;
+    gap: 55px;
+  }
+  .intro { text-align: center; }
+  .description { margin-left: auto; margin-right: auto; }
+  .socials { justify-content: center; }
+  .photo-frame { height: 430px; max-width: 330px; }
+  .photo-caption { right: 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 24px; }
+  .section { padding: 65px 7%; }
+}
+@media(max-width:420px) {
+  nav { gap: 9px; }
+  nav a { font-size: 7px; }
+  h1 { font-size: 41px; }
+  .social { width: 100%; }
+  .photo-frame { height: 390px; }
+  .values { grid-template-columns: 1fr; }
+  .value { border-right: 0; border-bottom: 1px solid var(--line); }
+  .value:last-child { border-bottom: 0; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="top-line"></div>
+
+<header>
+  <a class="logo" href="#home">HB</a>
+  <nav aria-label="Main navigation">
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#gallery">PHOTO</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+  <span class="top-note">STAY CONNECTED</span>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="intro">
+    <p class="kicker">WELCOME TO MY WORLD</p>
+    <h1>HAMED <span>BARAMALEKI</span></h1>
+    <p class="tagline">DREAM BIGGER &nbsp; / &nbsp; BUILD BETTER</p>
+    <p class="description">
+      Welcome to my official website. Discover my journey,
+      my interests, and the ambitions that shape my future.
+      Connect with me through my social platforms.
+    </p>
+
+    <div class="socials" id="contact">
+      <a class="social" href="https://www.instagram.com/h4amed/"
+         target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"
+                  stroke="none"/>
+        </svg>
+        INSTAGRAM
+      </a>
+
+      <a class="social" href="https://t.me/h4amed"
+         target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.7 3.3a1.5 1.5 0 0 0-1.6-.2L2.8 9.9c-1.2.5-1.2 1.2-.2 1.5l4.4 1.4 1.7 5.2c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.1-2 4.4 3.3c.8.4 1.4.2 1.6-.7l2.9-13.9c.2-.9-.3-1.4-.7-1.7ZM8.1 12.5l9.7-6.1c.5-.3.9-.1.5.2l-8 7.3-.3 3.2-1.9-4.6Z"/>
+        </svg>
+        TELEGRAM
+      </a>
+    </div>
+
+    <a class="scroll-note" href="#about">↓ &nbsp; SCROLL TO DISCOVER</a>
+  </div>
+
+  <div class="photo-area">
+    <div class="photo-frame">
+      <img src="profile.jpg" alt="Hamed Baramaleki">
+    </div>
+    <p class="photo-caption">MY PHOTO · HB</p>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-inner">
+    <p class="section-label">ABOUT ME</p>
+    <div class="about-grid">
+      <h2>More than a name —<br>a story in progress.</h2>
+      <div class="about-copy">
+        This is my personal space to share a little about who I am,
+        what inspires me, and what I'm working towards.
+        I believe in self-improvement, ambition, and building
+        a future with purpose.
+      </div>
+    </div>
+
+    <div class="values">
+      <div class="value">
+        <strong>AMBITION</strong>
+        <span>Dream bigger.<br>Think further.</span>
+      </div>
+      <div class="value">
+        <strong>DISCIPLINE</strong>
+        <span>Small steps.<br>Real progress.</span>
+      </div>
+      <div class="value">
+        <strong>FUTURE</strong>
+        <span>Keep building.<br>Keep moving.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="section-inner">
+    <p class="section-label">PHOTO GALLERY</p>
+    <h2>Moments & memories.</h2>
+    <p class="gallery-intro">
+      A space for my favourite photos and memories.
+      The main portrait above uses the image file profile.jpg.
+    </p>
+    <div class="gallery-placeholder">
+      <span>YOUR PHOTO GALLERY<br>MORE PHOTOS CAN BE ADDED HERE</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>HB · HAMED BARAMALEKI</strong>
+  <span>INSTAGRAM @h4amed</span>
+  <span>© 2026 · ALL RIGHTS RESERVED</span>
+</footer>
+</body>
+</html>
