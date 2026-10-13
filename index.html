@@ -2,614 +2,421 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080808">
-  <title>Hamed Baramaleki | حامد برامالکی</title>
-  <meta name="description" content="Official personal website of Hamed Baramaleki — حامد برامالکی.">
-  <meta name="author" content="Hamed Baramaleki">
-  <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <title>HB</title>
   <style>
     :root {
-      --black: #080808;
-      --panel: #111111;
-      --yellow: #ffe500;
-      --yellow-soft: #fff176;
-      --text: #f5f5f0;
-      --muted: #929292;
-      --border: rgba(255,229,0,.27);
-      --round: 22px;
+      --black: #050505;
+      --yellow: #ffe600;
+      --white: #f5f5f5;
     }
-    * { box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      background: var(--black);
     }
     body {
-      margin: 0;
       background: var(--black);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
     }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: .08;
-      background-image: radial-gradient(#ffffff .5px, transparent .5px);
-      background-size: 6px 6px;
-    }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
     /* INTRO */
-    #intro {
+    .intro {
       position: fixed;
       inset: 0;
       z-index: 1000;
       display: grid;
       place-items: center;
-      background: #050505;
-      transition: opacity .8s ease, visibility .8s ease;
-    }
-    #intro.hide {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+      background: var(--black);
+      animation: introOut 0.8s ease 2.2s forwards;
     }
     .intro-logo {
       color: var(--yellow);
-      font: clamp(85px, 18vw, 135px) 'Cormorant Garamond', serif;
-      letter-spacing: .12em;
-      text-align: center;
-      animation: glow 1.8s ease-in-out infinite;
+      font-size: clamp(90px, 20vw, 160px);
+      font-weight: 900;
+      letter-spacing: -12px;
+      padding-right: 12px;
+      animation: heartbeat 0.9s ease-in-out infinite,
+                 blink 1.8s ease-in-out infinite;
+      text-shadow: 0 0 35px #ffe60030;
     }
-    .intro-line {
-      width: 48px;
-      height: 2px;
-      margin: 12px auto;
-      background: var(--yellow);
-      animation: line 1.4s ease-in-out infinite alternate;
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.09); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.06); }
+      60% { transform: scale(1); }
     }
-    .intro-caption {
-      color: var(--yellow);
-      font-size: 9px;
-      letter-spacing: .4em;
-      text-align: center;
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.72; }
     }
-    @keyframes glow {
-      0%, 100% { opacity: .55; }
-      50% { opacity: 1; }
-    }
-    @keyframes line {
-      from { width: 20px; opacity: .4; }
-      to { width: 75px; opacity: 1; }
+    @keyframes introOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
     }
     /* HEADER */
     header {
-      position: absolute;
+      position: fixed;
+      z-index: 100;
       top: 0;
       left: 0;
-      right: 0;
-      z-index: 50;
+      width: 100%;
       height: 82px;
-      padding: 0 7%;
+      padding: 0 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: linear-gradient(#050505e8, transparent);
     }
-    .brand {
-      color: var(--yellow);
-      font: 27px 'Cormorant Garamond', serif;
-      letter-spacing: .13em;
-    }
-    .header-label {
-      color: var(--muted);
-      font-size: 9px;
-      letter-spacing: .3em;
-    }
-    .menu-wrap { position: relative; }
-    .menu-button {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: #101010;
+    .logo {
       color: var(--yellow);
       font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      text-decoration: none;
+    }
+    /* MENU BUTTON */
+    .menu-button {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #ffe60055;
+      border-radius: 14px;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
       cursor: pointer;
-      transition: .3s ease;
+      transition: border-color .3s, background .3s;
     }
     .menu-button:hover {
-      background: var(--yellow);
-      color: #080808;
-      transform: rotate(90deg);
+      border-color: var(--yellow);
+      background: #191919;
     }
+    .menu-button span {
+      display: block;
+      width: 21px;
+      height: 2px;
+      background: var(--yellow);
+      border-radius: 3px;
+      transition: transform .4s, opacity .3s;
+    }
+    .menu-button.active span:first-child {
+      transform: translateY(4.5px) rotate(45deg);
+    }
+    .menu-button.active span:last-child {
+      transform: translateY(-4.5px) rotate(-45deg);
+    }
+    /* DROPDOWN MENU */
     .menu-panel {
-      position: absolute;
-      top: 57px;
-      right: 0;
-      width: 185px;
-      padding: 8px;
-      background: #111111;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      opacity: 0;
+      position: fixed;
+      z-index: 90;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 110px 30px 38px;
+      background: #101010;
+      border-bottom: 1px solid #ffe60035;
+      transform: translateY(-105%);
       visibility: hidden;
-      transform: translateY(-7px);
-      transition: .25s ease;
-      box-shadow: 0 15px 40px #0009;
+      transition:
+        transform .55s cubic-bezier(.2, .8, .2, 1),
+        visibility .55s;
     }
     .menu-panel.open {
-      opacity: 1;
-      visibility: visible;
       transform: translateY(0);
+      visibility: visible;
+    }
+    .menu-panel nav {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 700px;
+      margin: auto;
     }
     .menu-panel a {
-      display: block;
-      padding: 13px 14px;
-      border-radius: 12px;
-      color: #dedede;
-      font-size: 10px;
-      letter-spacing: .15em;
-      transition: .2s ease;
+      width: fit-content;
+      color: var(--white);
+      text-decoration: none;
+      font-size: clamp(25px, 5vw, 40px);
+      font-weight: 800;
+      transition: color .25s, transform .25s;
     }
     .menu-panel a:hover {
-      background: rgba(255,229,0,.1);
       color: var(--yellow);
-      padding-left: 19px;
+      transform: translateX(6px);
     }
-    /* HERO */
+    /* HOME */
     .hero {
-      position: relative;
       min-height: 100svh;
-      padding: 125px 22px 85px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: min(85vw, 650px);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,229,0,.09), transparent 68%);
-      pointer-events: none;
-    }
-    .hero-topline {
-      position: relative;
-      margin-bottom: 22px;
-      color: var(--yellow);
-      font-size: 9px;
-      letter-spacing: .42em;
-      animation: rise .9s .1s both;
-    }
-    h1 {
-      position: relative;
-      margin: 0;
-      font: 400 clamp(38px, 8vw, 83px)/1.05 'Cormorant Garamond', serif;
-      letter-spacing: .065em;
-      animation: rise 1s .2s both;
-    }
-    h1 span { color: var(--yellow); }
-    .divider-yellow {
-      width: 45px;
-      height: 2px;
-      margin: 27px 0;
-      background: var(--yellow);
-      border-radius: 10px;
-      animation: rise 1s .3s both;
-    }
-    .portrait-frame {
-      position: relative;
-      width: clamp(190px, 43vw, 260px);
-      aspect-ratio: 4 / 5;
-      padding: 6px;
-      border: 1px solid rgba(255,229,0,.75);
-      border-radius: 150px 150px 24px 24px;
-      background: #0b0b0b;
-      animation: rise 1s .35s both;
-    }
-    .portrait-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      overflow: hidden;
-      border-radius: 145px 145px 18px 18px;
-      background: radial-gradient(ellipse at center, #25240c, #111111 55%, #080808);
-      color: var(--yellow);
-    }
-    .portrait-placeholder strong {
-      font: 62px 'Cormorant Garamond', serif;
-      letter-spacing: .1em;
-    }
-    .portrait-placeholder small {
-      color: var(--yellow-soft);
-      font-size: 8px;
-      letter-spacing: .32em;
-    }
-    .quote {
-      position: relative;
-      margin-top: 27px;
-      color: #f5efad;
-      font: italic clamp(23px, 4vw, 30px) 'Cormorant Garamond', serif;
-      animation: rise 1s .5s both;
-    }
-    .scroll-indicator {
-      position: absolute;
-      bottom: 48px;
-      left: 50%;
-      width: 2px;
-      height: 24px;
-      border-radius: 5px;
-      background: linear-gradient(var(--yellow), transparent);
-      animation: pulse 1.5s infinite;
-    }
-    .hero-bottom {
-      position: absolute;
-      bottom: 23px;
-      color: #737373;
-      font-size: 8px;
-      letter-spacing: .3em;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: .35; }
-      50% { opacity: 1; }
-    }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* SECTIONS */
-    section.content-section {
-      padding: 110px 8%;
-      border-top: 1px solid rgba(255,255,255,.07);
-    }
-    .section-kicker {
-      margin-bottom: 17px;
-      color: var(--yellow);
-      font-size: 9px;
-      letter-spacing: .38em;
-    }
-    .section-title {
-      margin: 0;
-      font: 400 clamp(39px, 6vw, 64px)/1.08 'Cormorant Garamond', serif;
-    }
-    .section-title span { color: var(--yellow); }
-    .about-grid {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: end;
-      gap: 55px;
-    }
-    .persian-name {
-      margin-top: 22px;
-      color: var(--yellow-soft);
-      font-size: 19px;
-    }
-    .about-note {
-      padding: 7px 0 7px 24px;
-      border-left: 2px solid var(--yellow);
-      color: #aaa;
-      font-size: 13px;
-      line-height: 2.1;
-    }
-    /* GALLERY */
-    #photos { text-align: center; }
-    .gallery-heading {
-      max-width: 1000px;
-      margin: 0 auto 40px;
-      text-align: left;
-    }
-    .gallery {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      grid-template-rows: 210px 210px;
-      gap: 13px;
-    }
-    .gallery-tile {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: radial-gradient(ellipse at 50% 30%, #24230c, #101010 65%, #080808);
-      transition: border-color .3s ease, transform .3s ease;
-    }
-    .gallery-tile:first-child { grid-row: span 2; }
-    .gallery-tile:hover {
-      border-color: var(--yellow);
-      transform: translateY(-3px);
-    }
-    .tile-label {
-      color: var(--yellow-soft);
-      font: 17px 'Cormorant Garamond', serif;
-      letter-spacing: .15em;
-    }
-    .tile-number {
-      position: absolute;
-      bottom: 15px;
-      left: 16px;
-      color: #f7f2bb;
-      font-size: 9px;
-      letter-spacing: .2em;
-    }
-    /* CONTACTS */
-    #contacts { text-align: center; }
-    .contact-subtitle {
-      max-width: 380px;
-      margin: 22px auto 36px;
-      color: #929292;
-      font-size: 12px;
-      line-height: 1.9;
-    }
-    .socials {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      min-width: 175px;
-      padding: 15px 23px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: #111111;
-      color: var(--yellow);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: .13em;
-      transition: background .3s ease, color .3s ease, transform .3s ease, border-color .3s ease;
-    }
-    .social-link svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .social-arrow {
-      margin-left: 2px;
-      color: currentColor;
-      font: 18px 'Cormorant Garamond', serif;
-      line-height: 1;
-      transition: transform .3s ease;
-    }
-    .social-link:hover {
-      background: var(--yellow);
-      border-color: var(--yellow);
-      color: #080808;
-      transform: translateY(-3px);
-    }
-    .social-link:hover .social-arrow {
-      transform: translate(2px, -2px);
-    }
-    footer {
-      padding: 25px 15px;
-      border-top: 1px solid rgba(255,255,255,.07);
-      color: #686868;
-      text-align: center;
-      font-size: 9px;
-      letter-spacing: .2em;
-    }
-    .to-top {
-      position: fixed;
-      right: 19px;
-      bottom: 19px;
-      z-index: 40;
-      width: 44px;
-      height: 44px;
       display: grid;
       place-items: center;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: #111111;
-      color: var(--yellow);
-      font: 23px 'Cormorant Garamond', serif;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: .25s ease;
+      text-align: center;
+      position: relative;
+      padding: 100px 20px;
     }
-    .to-top.show {
+    .hero h1 {
+      color: var(--yellow);
+      font-size: clamp(110px, 25vw, 260px);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: -.11em;
+      padding-right: .11em;
+      text-shadow: 0 0 60px #ffe60010;
+    }
+    .hero-line {
+      width: 48px;
+      height: 3px;
+      border-radius: 5px;
+      background: var(--yellow);
+      margin: 32px auto 0;
+    }
+    .scroll-note {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #777;
+      font-size: 10px;
+      letter-spacing: 4px;
+      white-space: nowrap;
+    }
+    /* DOCUMENT */
+    .document-section {
+      min-height: 85vh;
+      padding: 90px 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .document {
+      width: 100%;
+      max-width: 760px;
+      padding: clamp(30px, 7vw, 65px);
+      background: linear-gradient(145deg, #151515, #0a0a0a);
+      border: 1px solid #ffe60040;
+      border-radius: 25px;
+      opacity: 0;
+      transform: translateY(80px);
+      transition: opacity .9s ease, transform .9s ease;
+    }
+    .document.show {
       opacity: 1;
-      visibility: visible;
       transform: translateY(0);
     }
-    .to-top:hover {
-      background: var(--yellow);
-      color: #080808;
+    .document-label {
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      margin-bottom: 22px;
     }
-    @media (max-width: 650px) {
-      header { height: 70px; padding: 0 6%; }
-      .brand { font-size: 23px; }
-      .header-label { display: none; }
-      .hero { padding-top: 110px; }
-      .hero-topline { font-size: 8px; letter-spacing: .3em; }
-      h1 { font-size: clamp(33px, 9.4vw, 52px); letter-spacing: .025em; }
-      .portrait-frame { width: min(62vw, 240px); }
-      section.content-section { padding: 78px 7%; }
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
+    .document h2 {
+      color: var(--white);
+      font-size: clamp(36px, 7vw, 65px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+    .document p {
+      color: #aaa;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    /* SOCIAL ICONS */
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 20px 90px;
+    }
+    .social-icon {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      color: var(--yellow);
+      background: #111;
+      border: 1px solid #ffe60055;
+      border-radius: 18px;
+      text-decoration: none;
+      transition: transform .3s, border-color .3s, background .3s;
+    }
+    .social-icon:hover {
+      transform: translateY(-5px);
+      border-color: var(--yellow);
+      background: #1b1b1b;
+    }
+    .social-icon svg {
+      width: 26px;
+      height: 26px;
+      display: block;
+    }
+    footer {
+      border-top: 1px solid #ffffff12;
+      padding: 25px;
+      text-align: center;
+      color: #555;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+    @media (max-width: 480px) {
+      header {
+        height: 72px;
+        padding: 0 20px;
       }
-      .gallery {
-        grid-template-rows: 220px 145px;
-        gap: 9px;
+      .document-section {
+        padding: 65px 18px;
       }
-      .social-link { width: min(100%, 300px); }
-      .hero-bottom { font-size: 7px; }
+      .social-icon {
+        width: 55px;
+        height: 55px;
+      }
     }
     @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
       *, *::before, *::after {
         animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 <body>
-  <div id="intro" aria-label="Hamed Baramaleki">
-    <div>
-      <div class="intro-logo">HB</div>
-      <div class="intro-line"></div>
-      <div class="intro-caption">HAMED BARAMALEKI</div>
-    </div>
+  <!-- INTRO LOGO -->
+  <div class="intro">
+    <div class="intro-logo">HB</div>
   </div>
+  <!-- HEADER -->
   <header>
-    <a class="brand" href="#home" aria-label="Home">HB.</a>
-    <div class="header-label">PERSONAL WEBSITE</div>
-    <div class="menu-wrap">
-      <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">⋯</button>
-      <nav class="menu-panel" id="menuPanel">
-        <a href="#about">ABOUT</a>
-        <a href="#photos">PHOTOS</a>
-        <a href="#contacts">CONTACTS</a>
-      </nav>
-    </div>
+    <a href="#home" class="logo">HB</a>
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="menuPanel"
+    >
+      <span></span>
+      <span></span>
+    </button>
   </header>
+  <!-- MENU -->
+  <div class="menu-panel" id="menuPanel" aria-hidden="true">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#document">Document</a>
+      <a href="#contacts">Contacts</a>
+    </nav>
+  </div>
+  <!-- MAIN PAGE -->
   <main>
     <section class="hero" id="home">
-      <div class="hero-topline">THE OFFICIAL WEBSITE</div>
-      <h1>HAMED <span>BARAMALEKI</span></h1>
-      <div class="divider-yellow"></div>
-      <div class="portrait-frame">
-        <div class="portrait-placeholder">
-          <strong>HB</strong>
-          <small>YOUR PORTRAIT</small>
-        </div>
+      <div>
+        <h1>HB</h1>
+        <div class="hero-line"></div>
       </div>
-      <div class="quote">This too shall pass.</div>
-      <div class="scroll-indicator"></div>
-      <div class="hero-bottom">EST. 2026 &nbsp; · &nbsp; HB</div>
+      <div class="scroll-note">SCROLL DOWN</div>
     </section>
-    <section class="content-section" id="about">
-      <div class="about-grid">
-        <div>
-          <div class="section-kicker">01 / ABOUT</div>
-          <h2 class="section-title">A little<br>about <span>me.</span></h2>
-          <div class="persian-name" lang="fa" dir="rtl">حامد برامالکی</div>
-        </div>
-        <div class="about-note">
-          A personal space, a collection of moments, and a reminder that every chapter has its own meaning.
-          Some things are better expressed through silence, time, and the things we choose to keep.
-        </div>
-      </div>
+    <!-- DOCUMENT -->
+    <section class="document-section" id="document">
+      <article class="document" id="documentCard">
+        <div class="document-label">DOCUMENT</div>
+        <h2>
+          Less noise.<br>
+          More meaning.
+        </h2>
+        <p>
+          A quiet space. A clear mind.
+          Keep moving forward, one step at a time.
+        </p>
+      </article>
     </section>
-    <section class="content-section" id="photos">
-      <div class="gallery-heading">
-        <div class="section-kicker">02 / SELECTED MOMENTS</div>
-        <h2 class="section-title">The <span>Gallery.</span></h2>
-      </div>
-      <div class="gallery">
-        <div class="gallery-tile">
-          <span class="tile-label">YOUR PHOTO</span>
-          <span class="tile-number">01</span>
-        </div>
-        <div class="gallery-tile">
-          <span class="tile-label">YOUR MOMENT</span>
-          <span class="tile-number">02</span>
-        </div>
-        <div class="gallery-tile">
-          <span class="tile-label">YOUR STORY</span>
-          <span class="tile-number">03</span>
-        </div>
-      </div>
-    </section>
-    <section class="content-section" id="contacts">
-      <div class="section-kicker">03 / GET IN TOUCH</div>
-      <h2 class="section-title">Find me <span>elsewhere.</span></h2>
-      <p class="contact-subtitle">Follow along and stay connected.</p>
-      <div class="socials">
-        <a class="social-link"
-           href="https://www.instagram.com/h4amed/"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
-          </svg>
-          <span>INSTAGRAM</span>
-          <span class="social-arrow">↗</span>
-        </a>
-        <a class="social-link"
-           href="https://t.me/h4amed"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Telegram">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M22 2 15 22l-4-9-9-4Z"></path>
-            <path d="M22 2 11 13"></path>
-          </svg>
-          <span>TELEGRAM</span>
-          <span class="social-arrow">↗</span>
-        </a>
-      </div>
+    <!-- SOCIAL MEDIA -->
+    <section class="socials" id="contacts">
+      <!-- Instagram -->
+      <a
+        class="social-icon"
+        href="https://instagram.com/h4amed"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1"
+            fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+      <!-- Telegram -->
+      <a
+        class="social-icon"
+        href="https://t.me/h4amed"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Telegram"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21.7 4.4 18.5 20c-.24 1.1-.88 1.37-1.78.85l-4.92-3.63-2.37 2.28c-.26.26-.48.48-.98.48l.35-5.01 9.12-8.24c.4-.35-.09-.55-.62-.2L6.02 13.7 1.2 12.2c-1.05-.33-1.07-1.05.22-1.56L20.26 3.3c.88-.32 1.65.22 1.44 1.1Z"></path>
+        </svg>
+      </a>
     </section>
   </main>
-  <footer>© 2026 HAMED BARAMALEKI &nbsp; · &nbsp; ALL RIGHTS RESERVED</footer>
-  <a href="#home" class="to-top" id="toTop" aria-label="Back to top">↑</a>
+  <footer>HB</footer>
   <script>
-    const intro = document.getElementById('intro');
-    const menuButton = document.getElementById('menuButton');
-    const menuPanel = document.getElementById('menuPanel');
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('load', () => {
-      setTimeout(() => intro.classList.add('hide'), 1800);
+    const menuButton = document.getElementById("menuButton");
+    const menuPanel = document.getElementById("menuPanel");
+    function toggleMenu(open) {
+      menuButton.classList.toggle("active", open);
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute(
+        "aria-label",
+        open ? "Close menu" : "Open menu"
+      );
+      menuPanel.classList.toggle("open", open);
+      menuPanel.setAttribute("aria-hidden", String(!open));
+    }
+    menuButton.addEventListener("click", () => {
+      const isOpen =
+        menuButton.getAttribute("aria-expanded") === "true";
+      toggleMenu(!isOpen);
     });
-    menuButton.addEventListener('click', () => {
-      const open = menuPanel.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
+    menuPanel.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => toggleMenu(false));
     });
-    menuPanel.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuPanel.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-      });
-    });
-    document.addEventListener('click', event => {
-      if (!event.target.closest('.menu-wrap')) {
-        menuPanel.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        toggleMenu(false);
       }
     });
-    window.addEventListener('scroll', () => {
-      toTop.classList.toggle('show', window.scrollY > 350);
+    // Document smoothly appears when scrolling down
+    const documentCard = document.getElementById("documentCard");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          documentCard.classList.add("show");
+          observer.unobserve(documentCard);
+        }
+      });
+    }, {
+      threshold: 0.15
     });
+    observer.observe(documentCard);
   </script>
 </body>
 </html>
