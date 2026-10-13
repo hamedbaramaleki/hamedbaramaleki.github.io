@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070707">
+  <meta name="theme-color" content="#080808">
   <title>Hamed Baramaleki | حامد برامالکی</title>
   <meta name="description" content="Official personal website of Hamed Baramaleki — حامد برامالکی.">
   <meta name="author" content="Hamed Baramaleki">
@@ -13,18 +13,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --black: #070707;
-      --panel: #10100e;
-      --gold: #c6a66a;
-      --gold-light: #ead5a4;
-      --text: #f5f0e7;
-      --muted: #918b80;
-      --border: rgba(198, 166, 106, .28);
-      --round: 18px;
+      --black: #080808;
+      --panel: #111111;
+      --yellow: #ffe500;
+      --yellow-soft: #fff176;
+      --text: #f5f5f0;
+      --muted: #929292;
+      --border: rgba(255,229,0,.27);
+      --round: 22px;
     }
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 90px;
@@ -42,17 +40,12 @@
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      opacity: .12;
-      background-image: radial-gradient(#fff .5px, transparent .5px);
+      opacity: .08;
+      background-image: radial-gradient(#ffffff .5px, transparent .5px);
       background-size: 6px 6px;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    button {
-      font: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
     /* INTRO */
     #intro {
       position: fixed;
@@ -69,22 +62,21 @@
       pointer-events: none;
     }
     .intro-logo {
-      color: var(--gold-light);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(85px, 18vw, 135px);
+      color: var(--yellow);
+      font: clamp(85px, 18vw, 135px) 'Cormorant Garamond', serif;
       letter-spacing: .12em;
       text-align: center;
       animation: glow 1.8s ease-in-out infinite;
     }
     .intro-line {
       width: 48px;
-      height: 1px;
+      height: 2px;
       margin: 12px auto;
-      background: var(--gold);
+      background: var(--yellow);
       animation: line 1.4s ease-in-out infinite alternate;
     }
     .intro-caption {
-      color: var(--gold);
+      color: var(--yellow);
       font-size: 9px;
       letter-spacing: .4em;
       text-align: center;
@@ -109,12 +101,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.07);
     }
     .brand {
-      color: var(--gold-light);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 27px;
+      color: var(--yellow);
+      font: 27px 'Cormorant Garamond', serif;
       letter-spacing: .13em;
     }
     .header-label {
@@ -122,9 +113,7 @@
       font-size: 9px;
       letter-spacing: .3em;
     }
-    .menu-wrap {
-      position: relative;
-    }
+    .menu-wrap { position: relative; }
     .menu-button {
       width: 46px;
       height: 46px;
@@ -132,15 +121,15 @@
       place-items: center;
       border: 1px solid var(--border);
       border-radius: 50%;
-      background: #0d0c0a;
-      color: var(--gold-light);
+      background: #101010;
+      color: var(--yellow);
       font-size: 25px;
       cursor: pointer;
       transition: .3s ease;
     }
     .menu-button:hover {
-      background: var(--gold);
-      color: #090909;
+      background: var(--yellow);
+      color: #080808;
       transform: rotate(90deg);
     }
     .menu-panel {
@@ -149,14 +138,14 @@
       right: 0;
       width: 185px;
       padding: 8px;
-      background: #11110f;
+      background: #111111;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       opacity: 0;
       visibility: hidden;
       transform: translateY(-7px);
       transition: .25s ease;
-      box-shadow: 0 15px 40px #0008;
+      box-shadow: 0 15px 40px #0009;
     }
     .menu-panel.open {
       opacity: 1;
@@ -166,15 +155,15 @@
     .menu-panel a {
       display: block;
       padding: 13px 14px;
-      border-radius: 10px;
-      color: #d8d0c0;
+      border-radius: 12px;
+      color: #dedede;
       font-size: 10px;
       letter-spacing: .15em;
       transition: .2s ease;
     }
     .menu-panel a:hover {
-      background: rgba(198,166,106,.1);
-      color: var(--gold-light);
+      background: rgba(255,229,0,.1);
+      color: var(--yellow);
       padding-left: 19px;
     }
     /* HERO */
@@ -195,13 +184,13 @@
       width: min(85vw, 650px);
       aspect-ratio: 1;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(151,111,44,.13), transparent 68%);
+      background: radial-gradient(circle, rgba(255,229,0,.09), transparent 68%);
       pointer-events: none;
     }
     .hero-topline {
       position: relative;
       margin-bottom: 22px;
-      color: var(--gold);
+      color: var(--yellow);
       font-size: 9px;
       letter-spacing: .42em;
       animation: rise .9s .1s both;
@@ -209,21 +198,17 @@
     h1 {
       position: relative;
       margin: 0;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(38px, 8vw, 83px);
-      line-height: 1.05;
-      font-weight: 400;
+      font: 400 clamp(38px, 8vw, 83px)/1.05 'Cormorant Garamond', serif;
       letter-spacing: .065em;
       animation: rise 1s .2s both;
     }
-    h1 span {
-      color: var(--gold-light);
-    }
-    .divider-gold {
+    h1 span { color: var(--yellow); }
+    .divider-yellow {
       width: 45px;
-      height: 1px;
+      height: 2px;
       margin: 27px 0;
-      background: var(--gold);
+      background: var(--yellow);
+      border-radius: 10px;
       animation: rise 1s .3s both;
     }
     .portrait-frame {
@@ -231,8 +216,9 @@
       width: clamp(190px, 43vw, 260px);
       aspect-ratio: 4 / 5;
       padding: 6px;
-      border: 1px solid rgba(198,166,106,.65);
-      border-radius: 150px 150px 22px 22px;
+      border: 1px solid rgba(255,229,0,.75);
+      border-radius: 150px 150px 24px 24px;
+      background: #0b0b0b;
       animation: rise 1s .35s both;
     }
     .portrait-placeholder {
@@ -245,23 +231,23 @@
       justify-content: center;
       gap: 12px;
       overflow: hidden;
-      border-radius: 145px 145px 17px 17px;
-      background: radial-gradient(ellipse at center, #292317, #11100d 55%, #080808);
-      color: var(--gold);
+      border-radius: 145px 145px 18px 18px;
+      background: radial-gradient(ellipse at center, #25240c, #111111 55%, #080808);
+      color: var(--yellow);
     }
     .portrait-placeholder strong {
       font: 62px 'Cormorant Garamond', serif;
       letter-spacing: .1em;
     }
     .portrait-placeholder small {
+      color: var(--yellow-soft);
       font-size: 8px;
       letter-spacing: .32em;
-      color: #a38c5e;
     }
     .quote {
       position: relative;
       margin-top: 27px;
-      color: #dfcfac;
+      color: #f5efad;
       font: italic clamp(23px, 4vw, 30px) 'Cormorant Garamond', serif;
       animation: rise 1s .5s both;
     }
@@ -269,15 +255,16 @@
       position: absolute;
       bottom: 48px;
       left: 50%;
-      width: 1px;
+      width: 2px;
       height: 24px;
-      background: linear-gradient(var(--gold), transparent);
+      border-radius: 5px;
+      background: linear-gradient(var(--yellow), transparent);
       animation: pulse 1.5s infinite;
     }
     .hero-bottom {
       position: absolute;
       bottom: 23px;
-      color: #6e685d;
+      color: #737373;
       font-size: 8px;
       letter-spacing: .3em;
     }
@@ -292,11 +279,11 @@
     /* SECTIONS */
     section.content-section {
       padding: 110px 8%;
-      border-top: 1px solid rgba(255,255,255,.06);
+      border-top: 1px solid rgba(255,255,255,.07);
     }
     .section-kicker {
       margin-bottom: 17px;
-      color: var(--gold);
+      color: var(--yellow);
       font-size: 9px;
       letter-spacing: .38em;
     }
@@ -304,9 +291,7 @@
       margin: 0;
       font: 400 clamp(39px, 6vw, 64px)/1.08 'Cormorant Garamond', serif;
     }
-    .section-title span {
-      color: var(--gold-light);
-    }
+    .section-title span { color: var(--yellow); }
     .about-grid {
       max-width: 1000px;
       margin: auto;
@@ -317,20 +302,18 @@
     }
     .persian-name {
       margin-top: 22px;
-      color: #b8a47d;
+      color: var(--yellow-soft);
       font-size: 19px;
     }
     .about-note {
       padding: 7px 0 7px 24px;
-      border-left: 1px solid var(--gold);
-      color: #a8a196;
+      border-left: 2px solid var(--yellow);
+      color: #aaa;
       font-size: 13px;
       line-height: 2.1;
     }
     /* GALLERY */
-    #photos {
-      text-align: center;
-    }
+    #photos { text-align: center; }
     .gallery-heading {
       max-width: 1000px;
       margin: 0 auto 40px;
@@ -351,19 +334,17 @@
       justify-content: center;
       overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: var(--round);
-      background: radial-gradient(ellipse at 50% 30%, #292319, #10100e 65%, #080808);
+      border-radius: 22px;
+      background: radial-gradient(ellipse at 50% 30%, #24230c, #101010 65%, #080808);
       transition: border-color .3s ease, transform .3s ease;
     }
-    .gallery-tile:first-child {
-      grid-row: span 2;
-    }
+    .gallery-tile:first-child { grid-row: span 2; }
     .gallery-tile:hover {
-      border-color: rgba(234,213,164,.7);
+      border-color: var(--yellow);
       transform: translateY(-3px);
     }
     .tile-label {
-      color: #b49a68;
+      color: var(--yellow-soft);
       font: 17px 'Cormorant Garamond', serif;
       letter-spacing: .15em;
     }
@@ -371,18 +352,16 @@
       position: absolute;
       bottom: 15px;
       left: 16px;
-      color: #f1e1be;
+      color: #f7f2bb;
       font-size: 9px;
       letter-spacing: .2em;
     }
     /* CONTACTS */
-    #contacts {
-      text-align: center;
-    }
+    #contacts { text-align: center; }
     .contact-subtitle {
       max-width: 380px;
       margin: 22px auto 36px;
-      color: #928c82;
+      color: #929292;
       font-size: 12px;
       line-height: 1.9;
     }
@@ -402,8 +381,8 @@
       padding: 15px 23px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: linear-gradient(135deg, #15130f, #0a0a09);
-      color: var(--gold-light);
+      background: #111111;
+      color: var(--yellow);
       font-size: 10px;
       font-weight: 500;
       letter-spacing: .13em;
@@ -415,22 +394,20 @@
       flex-shrink: 0;
       fill: none;
       stroke: currentColor;
-      stroke-width: 1.6;
+      stroke-width: 1.7;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
     .social-arrow {
       margin-left: 2px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1;
       color: currentColor;
+      font: 18px 'Cormorant Garamond', serif;
+      line-height: 1;
       transition: transform .3s ease;
     }
     .social-link:hover {
-      background: var(--gold);
-      border-color: var(--gold);
+      background: var(--yellow);
+      border-color: var(--yellow);
       color: #080808;
       transform: translateY(-3px);
     }
@@ -439,8 +416,8 @@
     }
     footer {
       padding: 25px 15px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      color: #625d54;
+      border-top: 1px solid rgba(255,255,255,.07);
+      color: #686868;
       text-align: center;
       font-size: 9px;
       letter-spacing: .2em;
@@ -456,8 +433,8 @@
       place-items: center;
       border: 1px solid var(--border);
       border-radius: 50%;
-      background: rgba(12,12,11,.92);
-      color: var(--gold-light);
+      background: #111111;
+      color: var(--yellow);
       font: 23px 'Cormorant Garamond', serif;
       opacity: 0;
       visibility: hidden;
@@ -470,23 +447,18 @@
       transform: translateY(0);
     }
     .to-top:hover {
-      background: var(--gold);
+      background: var(--yellow);
       color: #080808;
     }
     @media (max-width: 650px) {
-      header {
-        height: 70px;
-        padding: 0 6%;
-      }
+      header { height: 70px; padding: 0 6%; }
       .brand { font-size: 23px; }
       .header-label { display: none; }
       .hero { padding-top: 110px; }
       .hero-topline { font-size: 8px; letter-spacing: .3em; }
       h1 { font-size: clamp(33px, 9.4vw, 52px); letter-spacing: .025em; }
       .portrait-frame { width: min(62vw, 240px); }
-      section.content-section {
-        padding: 78px 7%;
-      }
+      section.content-section { padding: 78px 7%; }
       .about-grid {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -495,9 +467,7 @@
         grid-template-rows: 220px 145px;
         gap: 9px;
       }
-      .social-link {
-        width: min(100%, 300px);
-      }
+      .social-link { width: min(100%, 300px); }
       .hero-bottom { font-size: 7px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -534,9 +504,8 @@
     <section class="hero" id="home">
       <div class="hero-topline">THE OFFICIAL WEBSITE</div>
       <h1>HAMED <span>BARAMALEKI</span></h1>
-      <div class="divider-gold"></div>
+      <div class="divider-yellow"></div>
       <div class="portrait-frame">
-        <!-- Your profile photo can replace this placeholder -->
         <div class="portrait-placeholder">
           <strong>HB</strong>
           <small>YOUR PORTRAIT</small>
